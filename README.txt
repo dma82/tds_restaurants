@@ -4,7 +4,7 @@ This application relies on MySQL
 
     1) Download MySQL at https://dev.mysql.com/downloads/installer/
 
-    2) Install MySQL and leave everything as default
+    2) Install MySQL and leave everything to the default options
 
     3) Create root user
 
