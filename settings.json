@@ -1,0 +1,7 @@
+{
+    "db_host": "localhost",
+    "db_user": "tdsuser",
+    "db_password": "tdspassword",
+    "db_port": 3306,
+    "db_schema": "tdsschema"
+}

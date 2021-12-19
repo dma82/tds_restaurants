@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="./scripts/utility.js"></script>
+
+
+</head>
+
+    <body>
+        <form name="myForm">
+            <div ng-app="myApp" ng-controller="myCtrl">
+                <div class="jumbotron text-center">
+                    <div class="row">
+                        <div class="col-sm-4" style="text-align: end;">
+                            <img src="./images/logo-dark.svg" class="logo" />
+                        </div>
+                        <div class="col-sm-8 title-div">
+                            <h1 class="title-header">TDS Restaurants</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class='col-sm-4'>
+                        <div class="form-group">
+                            <div class='input-group date' id='dateTimePicker' >
+                                <input type='text' class="form-control" id="selectedDt" onkeydown="return false"/>
+                                <span class="input-group-addon" ng-click="setDateTime()">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        </div>
+                        <div class='col-sm-4'>
+                            <button type="button" class="btn btn-primary btn-sm" ng-click="search()" id="searchBtn">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="resultsFound > 0">
+                        <div class="col-sm-6 title-div"><h2 class="source-header">{{ resultsFound }} restaurants found</h2></div>
+                        <table class="col-sm-6 table table-hover">
+                            <thead class="thead-green">
+                                <tr>
+                                    <th>Restaurant</th>
+                                    <th>Opening Time</th>
+                                    <th>Closing Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="r in result">
+                                    <th>{{ r.restaurant_name }}</th> 
+                                    <td>{{ r.open_at }}</td>
+                                    <td>{{ r.close_at }}</td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row" >
+                        <div class="col-sm-10 title-div"><h2 class="source-header" id="noResults"></h2></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
